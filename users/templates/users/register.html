@@ -10,45 +10,34 @@
         src="https://i.imgur.com/wvLiKam.png"
       />
     </h1>
-    <form class="login-form">
+    <form class="register-form" action=" " method="POST">
+      {%csrf_token%}
       <div class="username-info">
-        <label for="username">
-          <input id="username" type="text" placeholder="Usernamel" required />
-        </label>
+       {{form.username}}
+                            {% if form.errors %} <p>{{form.username.errors}}</p> {% endif %}
       </div>
 
       <!--email info-->
       <div class="username-info">
-        <label for="email">
-          <input id="email" type="text" placeholder="Email" />
-        </label>
+      {{form.email}}
+                            {% if form.errors %} <p>{{form.email.errors}}</p> {% endif %}
       </div>
 
       <!--Password 1-->
       <div class="password-info">
-        <label for="password">
-          <input
-            id="password"
-            type="password"
-            placeholder="Password"
-            required
-          />
-        </label>
+          {{form.password1}}
+                        {% if form.errors %} <p>{{form.password1.errors}}</p> {% endif %}
       </div>
 
       <!--Confirm password-->
 
       <div class="password-info">
-        <label for="password">
-          <input
-            id="password"
-            type="password"
-            placeholder="Re-enter password"
-            required
-          />
-        </label>
+          {{form.password2}}
+                            {% if form.errors %} <p>{{form.password2.errors}}</p> {% endif %}
       </div>
-      <div class="login-btn">Sign Up</div>
+      <button type="submit" class="login-btn btn-block block-btn">
+        Sign Up
+      </button>
 
       <div class="or-divider">
         <span class="or-text">OR</span>

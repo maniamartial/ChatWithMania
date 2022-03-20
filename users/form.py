@@ -20,7 +20,7 @@ class CreateRegisterForm(UserCreationForm):
     class Meta:
         # requirements from teh user
         model = User
-        fields = ["username", "email", "Password1", "password2"]
+        fields = ["username", "email", "password1", "password2"]
 
 
 # If you want the user to update their credentials
