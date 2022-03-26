@@ -10,11 +10,13 @@
         src="https://i.imgur.com/wvLiKam.png"
       />
     </h1>
-    <form class="login-form">
+    <form class="login-form" method="POST" action="">
+      {%csrf_token%}
       <div class="username-info">
         <label for="username">
           <input
-            id="username"
+      
+            name="username"
             type="text"
             placeholder="Phone number, username, or email"
             required
@@ -24,12 +26,19 @@
       <div class="password-info">
         <label for="password">
           <input
-            id="password"
+    
+            name="password"
             type="password"
             placeholder="Password"
             required
           />
         </label>
+      </div>
+
+       <div class="password-info">
+               {%for message in messages%}
+                           <p>{{message}}</p>
+                           {%endfor%}
       </div>
       <div class="login-btn">Log In</div>
 
